@@ -1,0 +1,45 @@
+body {
+  background-color: aquamarine;
+}
+
+/* @media(aspect-ratio:3/2) {
+  body {
+    background-color: brown;
+  }
+} */
+
+/* @media(max-device-aspect-ratio:3/2) {
+  body {
+    background-color: brown;
+  }
+} */
+
+/* @media(orientation:landscape) {
+  body {
+    background-color: brown;
+  }
+} */
+
+/* @media(max-height:480px) {
+  body {
+    background-color: brown;
+  }
+} */
+
+/* @media(max-device-height:480px) {
+  body {
+    background-color: brown;
+  }
+} */
+
+/* screen  and  @media(max-width:767px) {
+  body {
+    background-color: brown;
+  }
+} */
+
+/* @media(max-device-width:480px) {
+  body {
+    background-color: brown;
+  }
+} */

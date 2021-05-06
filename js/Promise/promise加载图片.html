@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    url = "https://s0.lgstatic.com/i/image6/M01/3B/EF/Cgp9HWCHs9uASQd_AAEmJyLM3ZA530.png";
+    function loadImg(url) {
+      return new Promise((resolve, reject) => {
+        let img = document.createElement("img");
+        img.src = url;
+        document.body.append(img);
+        img.onload = () => {
+          resolve(img);
+        };
+        img.onerror = () => {
+          err = new Error("Error");
+          reject(err);
+        };
+      });
+    }
+    loadImg(url)
+      .then((img) => {
+        console.log(img.width);
+        return img;
+      })
+      .then((img) => {
+        console.log(img);
+      });
+  </script>
+</body>
+
+</html>

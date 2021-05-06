@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    //Set存储不一样的数据
+    let s = new Set([1,2,3,4,4])
+    s.add(5).add(6)
+
+    console.log(s)
+    console.log(s.has(1),s.size)
+    console.log(s.keys(),s.values())
+    console.log(s.entries())
+    </script>
+</body>
+</html>

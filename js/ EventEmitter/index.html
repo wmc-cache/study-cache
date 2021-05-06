@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./Emitter.js"></script>
+
+  <script>
+    let emitter = new EventEmitter()
+    console.log(emitter)
+    emitter.on("add", confirm)
+    emitter.emit("add", ["123"])
+
+    function confirm(res) {
+      console.log(res)
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+let Animal = function (type) {
+    this.type = type
+}
+
+let Dog = function() {
+    //初始化父类的构造函数
+    Animal.call(this,'dog')
+}
+
+Dog.prototype =Animal.prototype
+
+
+
+
+
+
+
+
+   
+//    class  People {
+//       constructor(name){
+//           this.name = name;
+//       }
+//       eat(){
+//           console.log(`I am eat food` )
+//       }
+
+
+//    }
+
+
+
+//     class  Student extends People {
+//         constructor(name,number){
+//            super(name);
+//            this.number = number;
+//         }
+//         sayHi(){
+//             console.log(`我的名字是${this.name},学号为${this.number}`)
+            
+//         }
+//     }
+    
+//     let w = new Student("吴梦成",160101050108)
+    </script>
+    
+    
+    
+    
+</body>
+</html>

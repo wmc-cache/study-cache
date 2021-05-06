@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    window.onload = function () {
+      console.log("原先的 onload 事件 ");
+    };
+
+    function add() {
+      console.log("add");
+    }
+
+    /* 将新的功能添加到 onload 事件上 */
+    window.onload = (function () {
+      var originOnload = window.onload;
+      return function () {
+        originOnload && originOnload();
+        add();
+      };
+    })();
+
+      // 输出： 原先的 onload 事件
+      // 输出： 埋点：用户当前行为路径为 ...
+
+      //a || b：如果a是true，那么b不管是true还是false，都返回true。因此不用判断b了，这个时候刚好判断到a，因此返回a。
+      //　如果a是false，那么就要判断b，如果b是true，那么返回true，如果b是false，返回false，其实不就是返回b了吗。
+
+      //a && b：如果a是false，那么b不管是true还是false，都返回false，因此不用判断b了，这个时候刚好判断到a，因此返回a。
+      //如果a是true，那么就要在判断b，和刚刚一样，不管b是true是false，都返回b。
+  </script>
+</body>
+
+</html>

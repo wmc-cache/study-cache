@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //发布-订阅模式
+      class EventEmitter {
+        constructor() {
+          this.events = {};
+        }
+
+        on(type, listener) {
+          this.events.type = listener;
+        }
+
+        emit(type, ...args) {
+          if (this.events.type) {
+            //this指向EventEmitter对象
+            this.events.type.call(this, ...args);
+          }
+        }
+      }
+
+      const emitter = new EventEmitter();
+
+      emitter.on("click", (event) => {
+        console.log(event);
+      });
+
+      emitter.emit("click", "click me");
+    </script>
+
+    <script>
+      //观察者模式  Rxjs
+      class Subject {
+        constructor() {
+          this.observers = [];
+        }
+
+        add(observer) {
+          this.observers.push(observer);
+        }
+
+        notify(...args) {
+          this.observers.forEach((observer) => observer.log(...args));
+        }
+      }
+
+      class Observer {
+        log(...args) {
+          console.log(...args);
+        }
+      }
+
+      const ob1 = new Observer();
+      const ob2 = new Observer();
+      const sub = new Subject();
+      sub.add(ob1);
+      sub.add(ob2);
+      sub.notify("Event Fire");
+    </script>
+  </body>
+</html>

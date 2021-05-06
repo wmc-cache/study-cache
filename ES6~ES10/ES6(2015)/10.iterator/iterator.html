@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>w</p>
+    <p>m</p>
+    <p>c</p>
+    <script>
+      const p = document.getElementsByTagName("p");
+      // function iterator(data) {
+      //   let iterator = data[Symbol.iterator]();
+      //   let item = { done: false };
+      //   while (!item.done) {
+      //     item = iterator.next();
+      //     if (!item.done) {
+      //       console.log(item.value);
+      //     }
+      //   }
+      // }
+      // iterator(p);
+      for (const item of p) {
+        console.log(item);
+      }
+    </script>
+  </body>
+</html>

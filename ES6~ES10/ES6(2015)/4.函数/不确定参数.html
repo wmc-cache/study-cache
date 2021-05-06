@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function add() {
+    //     let sum=0;
+    //  Array.from(arguments).forEach(
+    //         (ele)=>{
+    //              sum+=ele
+    //             console.log(sum)
+            
+    //         }
+            
+    //     )
+        
+
+    // }
+    // add(1,2,3,4,5)
+    
+
+
+   function add(base,...items) {
+       let sum = 0;
+    items.forEach(
+        (ele)=>{
+            sum+=ele
+            console.log(sum)
+        }
+    )
+       
+   }
+   add(1,2,3,4,5)
+    </script>
+</body>
+</html>

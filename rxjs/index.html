@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
+</head>
+
+<body>
+  <button>click</button>
+  <script>
+    const button = document.getElementsByTagName("button")[0]
+    const { fromEvent, interval } = rxjs;
+    const { map, filter, take } = rxjs.operators;
+
+    // fromEvent(button, "click")
+    //   .pipe(map(_ => _.target))
+    //   .subscribe(res => {
+    //     console.log(res)
+    //   })
+
+    interval(1000).pipe(
+      filter(v => v > 3),
+      take(10)
+    ).subscribe(
+      res => {
+        console.log(res)
+      }
+    )
+
+    document.title = "rxjs"
+  </script>
+</body>
+
+</html>

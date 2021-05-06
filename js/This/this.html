@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  this永远指向一个对象
+
+  this实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数的调用方式
+
+  this的指向在函数定义的时候是确定不了的，
+  只有函数执行的时候才能确定this到底指向谁，
+  实际上this的最终指向的是那个调用它的对象
+
+
+  more:https://www.cnblogs.com/pssp/p/5216085.html
+  <script>
+    const add = () => {
+      console.log(this)
+    }
+    add()
+  </script>
+</body>
+
+</html>

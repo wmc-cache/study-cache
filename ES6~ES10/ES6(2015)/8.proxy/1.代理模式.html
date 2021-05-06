@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const star = {
+        name: "吴梦成",
+        age: "22",
+        phone: "13593800587",
+      };
+
+      const agent = new Proxy(star, {
+        get(target, key) {
+          if (key === "phone") {
+            return "110";
+          }
+          if (key === "price") {
+            return 12000;
+          }
+          return target[key];
+        },
+        set(target, key, value) {
+          if (key === "customPrice") {
+            if (value < 10000) {
+              alert("NO");
+            } else {
+              target[key] = value;
+              return true;
+            }
+          }
+        },
+      });
+
+      agent.customPrice = 10000;
+      console.log(agent.phone, agent.name, agent.price, agent.customPrice);
+    </script>
+  </body>
+</html>

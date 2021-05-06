@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Function.prototype.myCall = function (context, ...args) {
+      // step1: 把函数挂到目标对象上（这里的 this 就是我们要改造的的那个函数）
+      context.func = this;
+      // step2: 执行函数，利用扩展运算符将数组展开
+      context.func(...args);
+      // step3: 删除 step1 中挂到目标对象上的函数，把目标对象”完璧归赵”
+      delete context.func;
+    };
+
+
+    let me = {
+      name: "Chris",
+    };
+
+    function showFullName(surName) {
+      console.log(`${this.name} ${surName}`);
+    }
+
+    showFullName.myCall(me, "Lee"); // Chris Lee
+
+
+
+
+  </script>
+</body>
+
+</html>

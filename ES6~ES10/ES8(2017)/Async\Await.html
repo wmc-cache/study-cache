@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function test() {
+        return 27;
+      }
+
+      test().then(val => {
+        console.log(val);
+      });
+
+      //如果这个函数是异步操作，要加上 async，
+      //如果函数体内部有多个异步操作，你希望他们按顺序执行，
+      //可以给每个异步操作加上 await
+    </script>
+  </body>
+</html>
