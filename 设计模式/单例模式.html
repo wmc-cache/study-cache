@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      class LoginFrom {
-        constructor() {
-          this.state = false;
-        }
-        show() {
-          if (this.state === true) {
-            alert("登录框已显示");
-            return;
-          }
-          this.state = true;
-          console.log("登录框显示成功");
-        }
-        hide() {
-          if (this.state === false) {
-            alert("登录框未打开");
-            return;
-          }
-          this.state = false;
-          console.log("登录框已关闭");
-        }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class LoginFrom {
+      constructor() {
+        this.state = false;
       }
+      show() {
+        if (this.state === true) {
+          alert("登录框已显示");
+          return;
+        }
+        this.state = true;
+        console.log("登录框显示成功");
+      }
+      hide() {
+        if (this.state === false) {
+          alert("登录框未打开");
+          return;
+        }
+        this.state = false;
+        console.log("登录框已关闭");
+      }
+    }
 
-      LoginFrom.get = (function () {
-        let from;
-        return function () {
-          if (!from) {
-            from = new LoginFrom();
-          }
-          return from;
-        };
-      })();
+    LoginFrom.get = (function () {
+      let from;
+      return function () {
+        if (!from) {
+          from = new LoginFrom();
+        }
+        return from;
+      };
+    })();
 
-      let page1 = LoginFrom.get();
-      page1.hide();
-      let page2 = LoginFrom.get();
-      page2.hide();
-    </script>
-  </body>
+    let page1 = LoginFrom.get();
+    page1.show();
+    page1.show();
+    let page2 = LoginFrom.get();
+    page2.hide();
+    page2.hide();
+  </script>
+</body>
+
 </html>

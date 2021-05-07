@@ -37,7 +37,7 @@ function reactive(target = {}) {
             const result = Reflect.set(target, key, val, receiver)
             console.log('set', key, val)
 
-            //console.log(target[key])
+            //数据改变操作
             watchData[key](target[key])
             // console.log('result', result) // true
             return result // 是否设置成功
