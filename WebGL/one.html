@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+
+<body>
+
+  <canvas width="512" height="512"></canvas>
+  <script src="https://unpkg.com/gl-renderer/dist/gl-renderer.js"></script>
+
+
+  <script>
+    // gl_PointSize	点渲染模式，方形点区域渲染像素大小	float
+    // gl_Position	顶点位置坐标	vec4
+    // gl_FragColor	片元颜色值	vec4
+    // gl_FragCoord	片元坐标，单位像素	vec2
+    // gl_PointCoord	点渲染模式对应点像素坐标	vec2
+
+
+    const vertex = `
+  attribute vec3 a_vertexPosition;
+
+  void main() {
+    gl_PointSize = 1.0;
+    gl_Position = vec4(a_vertexPosition, 1);
+  }
+  `;
+
+
+    const fragment = `
+    #ifdef GL_ES
+    precision mediump float;
+    #endif
+
+    void main() {
+  
+     gl_FragColor =vec4(1.0,0.0,0.0,1.0);
+  
+    }
+    `;
+
+    const canvas = document.querySelector('canvas');
+    const renderer = new GlRenderer(canvas);
+
+
+    const program = renderer.compileSync(fragment, vertex);
+    renderer.useProgram(program);
+    renderer.setMeshData([{
+      positions: [
+        [-1, -1, 1],
+        [-1, 1, 1],
+        [1, 1, 1],
+        [1, -1, 1],
+        [-1, -1, 1],
+        [1, 1, 1]
+      ]
+
+    }]);
+    renderer.render();
+
+  </script>
+
+</body>
+
+</html>
