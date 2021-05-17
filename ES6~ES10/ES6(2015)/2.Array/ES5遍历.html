@@ -19,51 +19,54 @@
 
     //forEach  不能使用break 和 continue 没有返回值
 
-    arr.forEach(ele => {
-      console.log(ele);
-    });
+    // arr.forEach(ele => {
+    //   console.log(ele);
+    // });
 
 
 
     //返回一个新数组
-    const filter = arr.filter((ele) => {
-      return ele > 3
-    })
-    console.log(filter)
+    // const filter = arr.filter((ele) => {
+    //   return ele > 3
+    // })
+    // console.log(filter)
 
 
     //返回一个新数组
-    const map = arr.map((ele) => {
-      return ele = 2
-    })
-    console.log(map)
+    // const map = arr.map((ele) => {
+    //   return ele = 2
+    // })
+    // console.log(map)
 
 
-      //every 如果数组中检测到有一个元素不满足，则整个表达式返回 false ，
-      //且剩余的元素不会再进行检测。
-      //arr.every((ele)=>{
-      //   if(ele===2){
-      //       return false
-      //   }
+    //every 如果数组中检测到有一个元素不满足，则整个表达式返回 false ，
+    //且剩余的元素不会再进行检测。
+    //arr.every((ele)=>{
+    //   if(ele===2){
+    //       return false
+    //   }
 
-      // console.log(ele)
+    // console.log(ele)
 
-      //    return true
-      //})
-
-
+    //    return true
+    //})
 
 
 
-      // for in
-      //
-      // for (let index in arr) {
+
+    // for...in...专门用来循环对象的语句。一般不用来循环数组，但并不表示不能循环数组。
+    // for...of...专门用来循环数组（ES6），也可以用来循环带有迭代器的对象，不能直接循环对象，循环对象时，要使用Object.keys(obj)返回键的迭代器，再去循环。
+
+
+    // for in 遍历对象
+    let obj = { name: "wmc", sex: "男", add: { num: 3 } }
+    for (let index in obj) {
       //index是字符串
-      //     if(arr[index]==2){
-      //         continue
-      //     }
-      //    console.log(index,arr[index])
+      //if (arr[index] == 2) {
+      //   continue
       // }
+      console.log(index, obj[index])
+    }
 
       //ES6 for of
       //for (let ele of arr) {

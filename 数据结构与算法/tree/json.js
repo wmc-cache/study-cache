@@ -6,17 +6,13 @@ const json = {
 }
 
 
-const dfs = (n) => {
-    if (n) {
-        console.log(n);
+const dfs = (json) => {
+    if (json) {
+        console.log(json);
     }
-
-    if (typeof n === "string") return;
-
-
-    Object.keys(n).forEach(k => {
-
-        dfs(n[k]);
+    if (typeof json === "string") return;
+    Object.keys(json).forEach(k => {
+        dfs(json[k]);
     });
 };
 
