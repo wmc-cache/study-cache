@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  如果未使用keep-alive组件，则在页面回退时仍然会重新渲染页面，触发created钩子，使用体验不好。
+  在以下场景中使用keep-alive组件会显著提高用户体验，菜单存在多级关系，多见于列表页+详情页的场景如：
+
+  商品列表页点击商品跳转到商品详情，返回后仍显示原有信息
+  订单列表跳转到订单详情，返回，等等场景。
+
+
+  keep-alive的生命周期
+  初次进入时：created > mounted > activated；退出后触发 deactivated
+  再次进入：会触发 activated
+  事件挂载的方法等，只执行一次的放在 mounted 中
+  组件每次进去执行的方法放在 activated 中
+
+  <script>
+
+  </script>
+</body>
+
+</html>

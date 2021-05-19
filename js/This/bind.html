@@ -11,6 +11,29 @@
 <body>
   <script>
 
+    let me = {
+      name: "Chris",
+    };
+
+    function showFullName(surName) {
+      console.log(`${this.name} ${surName}`);
+    }
+
+    Function.prototype.$bind = function (context, ...args) {
+
+      return () => {
+        return this.apply(context, ...args)
+
+      }
+    }
+
+
+    showFullName.$bind(me, ["asd", "www"])()
+    //console.log()
+
+
+
+
   </script>
 </body>
 
