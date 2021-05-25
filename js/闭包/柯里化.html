@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //柯里化是将一个 n 个参数的函数转换成 n 个单参数函数。
+    function generateName(prefix, type, itemName) {
+      return prefix + type + itemName
+    }
+    
+    function generateName(prefix) {
+      return function (type) {
+        return function (itemName) {
+          return prefix + type + itemName
+        }
+      }
+    }
+
+    // 生成大卖网商品名专属函数
+    var salesName = generateName('大卖网')
+
+    // “记住”prefix，生成大卖网母婴商品名专属函数
+    var salesBabyName = salesName('母婴')
+
+    // "记住“prefix和type，生成洗菜网生鲜商品名专属函数
+    var vegFreshName = generateName('洗菜网')('生鲜')
+
+    // 输出 '大卖网母婴奶瓶'
+    salesBabyName('奶瓶')
+    // 输出 '洗菜网生鲜菠菜'
+    vegFreshName('菠菜')
+
+    // 啥也不记，直接生成一个商品名
+    var itemFullName = generateName('洗菜网')('生鲜')('菠菜')
+
+
+  </script>
+</body>
+
+</html>

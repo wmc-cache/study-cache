@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+
+    function generateName(prefix, type, itemName) {
+      return prefix + type + itemName
+    }
+
+    // 调用时一口气传入3个入参
+    var itemFullName = generateName('大卖网', '母婴', '奶瓶')
+
+
+    function generateName(prefix) {
+      return function (type, itemName) {
+        return prefix + type + itemName
+      }
+    }
+
+    // 把3个参数分两部分传入
+    var itemFullName = generateName('大卖网')('母婴', '奶瓶')
+  </script>
+</body>
+
+</html>

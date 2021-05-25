@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Parent(age) {
+        this.age = age;
+      }
+
+      var p = new Parent(50);
+      p.constructor === Parent; // true
+      p.constructor === Object; // false
+      //什么是constructor
+      //constructor是对函数本身的引用
+      //构造函数和普通函数的区别在于，使用 new 生成实例的函数就是构造函数，直接调用的就是普通函数。
+
+      // 普通函数
+      function parent2(age) {
+        this.age = age;
+      }
+      var p2 = parent2(50);
+      // undefined
+
+      // 普通函数
+      function parent3(age) {
+        return {
+          age: age,
+        };
+      }
+      var p3 = parent3(50);
+      p3.constructor === Object; // true
+
+      //这个得分情况，对于引用类型来说 constructor 属性值是可以修改的，但是对于基本类型来说是只读的。
+      //引用类型情况其值可修改这个很好理解，
+      //比如原型链继承方案中，就需要对 constructor重新赋值进行修正。
+
+      function Foo() {
+        this.value = 42;
+      }
+      Foo.prototype = {
+        method: function () {},
+      };
+
+      function Bar() {}
+
+      // 设置 Bar 的 prototype 属性为 Foo 的实例对象
+      Bar.prototype = new Foo();
+      Bar.prototype.foo = "Hello World";
+
+      Bar.prototype.constructor === Object;
+      // true
+
+      // 修正 Bar.prototype.constructor 为 Bar 本身
+      Bar.prototype.constructor = Bar;
+
+      var test = new Bar(); // 创建 Bar 的一个新实例
+      console.log(test);
+    </script>
+  </body>
+</html>
