@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Symbol 是基本数据类型，但作为构造函数来说它并不完整，
+      //因为它不支持语法 new Symbol()，Chrome 认为其不是构造函数，
+      //如果要生成实例直接使用 Symbol() 即可
+
+      //所有的函数都有prototype属性，因为所有的函数都可以被当作构造函数。
+      //当构造函数构造实例时，首先创建一个空对象，
+      //然后按照函数中对this的操作把空对象操作一遍，最后再把构造函数中的prototype的值赋给这个对象。
+      //实例也是有属性指向其构造函数的原型的：__proto__。
+
+      var a = { name: "dog" };
+      var b = { age: 15 };
+      a.__proto__ = b;
+      a.age === 15; // true
+
+      var a = { name: "dog" };
+      var b = { age: 15 };
+      Object.setPrototypeOf(a, b);
+      a.age === 15; // true
+    </script>
+  </body>
+</html>

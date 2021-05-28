@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const User = (function () {
+      // 定义私有变量_password
+      let _password;
+      class User {
+        constructor(username, password) {
+          this.username = username;
+          // 初始化私有变量_password
+          _password = password;
+        }
+        login() {
+          // 这里我们增加一行 console，为了验证 login 里仍可以顺利拿到密码
+          console.log(this.username, _password);
+        }
+      }
+
+      return User;
+    })();
+    let user = new User("wmc", "wmc123");
+    console.log(user.username);//wmc
+    console.log(user.password);//undefined
+    console.log(user._password);//undefined
+    user.login();// wmc wmc123
+  </script>
+</body>
+
+</html>

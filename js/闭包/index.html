@@ -10,6 +10,18 @@
 
 <body>
   <script>
+    debugger
+    let a = 11
+    function add() {
+      let a = 10
+      return function con() {
+        console.log(a)
+      }
+    }
+
+    let c = add()
+    c()
+
 
   </script>
 </body>

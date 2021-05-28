@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  Observer：处理 data 的家伙。它会给 data 安装 getter 和 setter，
+  这些安装上的逻辑会联动 Dep 去完成依赖收集和更新的派发；
+
+  Dep：实际通知 Watcher 的人。
+  在 getter 和 setter 逻辑中，正是通过调度 Dep 来完成信息的收集、
+  以及和 Watcher 间的通信；
+
+  Watcher：Watcher 被通知之后，就会通知 render、进而触发重渲染了。
+</body>
+
+</html>
