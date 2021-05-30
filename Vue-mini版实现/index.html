@@ -13,9 +13,11 @@
     <h1>{{ msg }}</h1>
     <h1>{{ count }}</h1>
     <div>{{ name }}</div>
+    <div>{{arr}}</div>
     <h1>v-text</h1>
     <div v-html="htmlStr"></div>
     <div v-text="msg"></div>
+
     <input type="text" v-model="msg">
     <input type="text" v-model="count">
     <button v-on:click="changeName">编辑</button>
@@ -32,7 +34,8 @@
         msg: 'Hello Vue',
         count: 100,
         name: '大白菜',
-        htmlStr: `<span style='color:red'>我是span标签</span>`
+        htmlStr: `<span style='color:red'>我是span标签</span>`,
+        arr: `[1, 2, 3, 4]`
       },
       methods: {
         changeName: function () {
@@ -41,7 +44,7 @@
         }
       }
     })
-    //console.log(vm.msg)
+    console.log(vm)
     // vm.msg = { test: 'yjx' }
   </script>
 </body>

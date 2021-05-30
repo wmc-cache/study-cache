@@ -12,6 +12,7 @@ class Watcher {
 
     // 把Watcher对象变化的时候更新视图
     Dep.target = this;
+    console.log("Dep.target", Dep.target)
     // 触发get方法, 在get方法中调用addSub
     this.oldValue = vm[key];
     Dep.target = null

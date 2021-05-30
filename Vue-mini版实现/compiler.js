@@ -5,11 +5,11 @@ class Compiler {
     this.compile(this.el)
   }
   // 编译模板, 处理文本节点和元素节点
-  compile (el) {
+  compile(el) {
     let childNodes = el.childNodes
     Array.from(childNodes).forEach(node => {
       // 处理文本节点
-      console.log(node.nodeType, 'nodeType')
+      // console.log(node.nodeType, 'nodeType')
       if (this.isTextNode(node)) {
         this.compileText(node)
       } else if (this.isElementNode(node)) {
@@ -25,7 +25,7 @@ class Compiler {
   }
 
   // 编译元素节点, 出来指令
-  compileElement (node) {
+  compileElement(node) {
     console.log(node.attributes)
     // 遍历所有的属性节点
     Array.from(node.attributes).forEach(attr => {
@@ -47,25 +47,25 @@ class Compiler {
     })
   }
 
-  isEvent (attr) {
+  isEvent(attr) {
     console.log(attr)
     return attr.indexOf("on") === 0;
   }
 
-  update (node, key, attrName) {
+  update(node, key, attrName) {
     let updateFn = this[attrName + 'Updater']
     updateFn && updateFn.call(this, node, this.vm[key], key)
   }
 
   // 处理 v-text 指令
-  textUpdater (node, value, key) {
+  textUpdater(node, value, key) {
     node.textContent = value
     new Watcher(this.vm, key, (newValue) => {
       node.textContent = newValue
     })
   }
   // v-model
-  modelUpdater (node, value, key) {
+  modelUpdater(node, value, key) {
     node.value = value;
     new Watcher(this.vm, key, (newValue) => {
       node.value = newValue
@@ -78,7 +78,7 @@ class Compiler {
   }
 
   // 处理v-html
-  htmlUpdater (node, value, key) {
+  htmlUpdater(node, value, key) {
     node.innerHTML = value
     new Watcher(this.vm, key, (newValue) => {
       console.log(newValue, 'newValue')
@@ -87,7 +87,7 @@ class Compiler {
   }
 
   // 编译文本节点，出来差值
-  compileText (node) {
+  compileText(node) {
     // console.dir(node)
     let reg = /\{\{(.+?)\}\}/
     let value = node.textContent
@@ -103,7 +103,7 @@ class Compiler {
   }
 
   // 添加事件
-  eventHandler (node, vm, exp, dir) {
+  eventHandler(node, vm, exp, dir) {
     const fn = vm.$options.methods && vm.$options.methods[exp];
     if (dir && fn) {
       node.addEventListener(dir, fn.bind(vm));
@@ -111,17 +111,17 @@ class Compiler {
   }
 
   // 判断元素属性是否是指令
-  isDirective (attrName) {
+  isDirective(attrName) {
     return attrName.startsWith('v-')
   }
 
   // 判断节点是否是文本节点
-  isTextNode (node) {
+  isTextNode(node) {
     return node.nodeType === 3
   }
 
   // 判读节点是否是元素节点
-  isElementNode (node) {
+  isElementNode(node) {
     return node.nodeType === 1
   }
 }
