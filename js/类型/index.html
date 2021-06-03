@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let obj1 = {
+      valueOf() { return 100 }, toString() { return 102 }
+    }
+    let obj2 = {
+      toString() { return 102 }
+    }
+    let obj3 = {
+      valueOf() { return {} }, toString() { return 102 }
+    }
+
+    //先检测该对象中是否存在 valueOf 方法，如果有并返回了原始类型，那么就使用该值 进行强制类型转换；
+    //如果 valueOf 没有返回原始类型，那么就使用 toString 方法的返回值；
+    //如果 valueOf 和 toString 两个方法都不返回基本类型值，便会触发一个 TypeError 的错误。
+
+    console.log(obj1 + 3)
+    console.log(obj2 + 3)
+    console.log(obj3 + 3)
+
+
+    // console.log([1, 2, 3].valueOf())
+    // console.log({ name: "123" }.valueOf())
+  </script>
+
+</body>
+
+</html>
