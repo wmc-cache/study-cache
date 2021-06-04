@@ -11,7 +11,7 @@ const proxyData = new Proxy(data, {
         if (ownKeys.includes(key)) {
             console.log('get', key) // 监听
         }
-
+        //console.log("receiver", receiver)
         const result = Reflect.get(target, key, receiver)
         return result // 返回结果
     },
