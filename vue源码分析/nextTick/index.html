@@ -9,10 +9,10 @@
 </head>
 
 <body>
-  <div id="box"></div>
+  <div name="wmc" id="box"></div>
   <script>
-    let box = document.querySelector('#box'),
-      config = { attributes: true };
+    let box = document.getElementById('box');
+    let config = { attributes: true };
 
     /*
     * 在我们创建MutationObserver对象的时候可以传入一个函数，
@@ -20,7 +20,7 @@
     */
     let observer = new MutationObserver(mutations => {
 
-      console.log(mutations)
+      //console.log(mutations)
       // => 返回一个我们监听到的MutationRecord对象
       // MutationRecord对象 是我们每修改一个就会在数组里面追加一个
     })
@@ -28,10 +28,10 @@
     observer.observe(box, config) // 监听的 元素 和 配置项
     box.setAttribute('name', '张三')// 修改属性
 
-    //let arr = observer.takeRecords()
+    let arr = observer.takeRecords()
     // 获取队列中未处理的，
     // 这个方法是同步执行，可以即时获取
-    //console.log(arr)
+    console.log(arr[0])
 
     //observer.disconnect()
 
