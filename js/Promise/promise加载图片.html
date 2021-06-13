@@ -27,11 +27,10 @@
     }
     loadImg(url)
       .then((img) => {
-        console.log(img.width);
-        return img;
+        return img.width;
       })
-      .then((img) => {
-        console.log(img);
+      .then((width) => {
+        console.log(width);
       });
   </script>
 </body>
