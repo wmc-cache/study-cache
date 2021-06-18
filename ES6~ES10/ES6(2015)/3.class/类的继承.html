@@ -1,24 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <script>
-let Animal = function (type) {
-    this.type = type
-}
+        // let Animal = function (type) {
+        //     this.type = type
+        // }
 
-let Dog = function() {
-    //初始化父类的构造函数
-    Animal.call(this,'dog')
-}
+        // let Dog = function() {
+        //     //初始化父类的构造函数
+        //     Animal.call(this,'dog')
+        // }
 
-Dog.prototype =Animal.prototype
+        // Dog.prototype =Animal.prototype
+
+        // 第一种：原型链继承
+        //原型属性共享
+
+        // function Parent1() {
+
+        //     this.name = 'parent1';
+
+        //     this.play = [1, 2, 3]
+
+        // }
+
+        // function Child1() {
+
+        //     this.type = 'child2';
+
+        // }
+
+        // Child1.prototype = new Parent1();
+
+        // console.log(new Child1());
+
+        //第二种：构造函数继承（借助 call）
+        //只能继承父类的实例属性和方法，不能继承原型属性或者方法。
+        function Parent1() {
+
+            this.name = 'parent1';
+
+        }
+
+        Parent1.prototype.getName = function () {
+
+            return this.name;
+
+        }
+
+        function Child1() {
+
+            Parent1.call(this);
+
+            this.type = 'child1'
+
+        }
+
+        let child = new Child1();
+
+        console.log(child);  // 没问题
+
+        console.log(child.getName());  // 会报错
 
 
 
@@ -27,7 +78,6 @@ Dog.prototype =Animal.prototype
 
 
 
-   
 //    class  People {
 //       constructor(name){
 //           this.name = name;
@@ -48,15 +98,16 @@ Dog.prototype =Animal.prototype
 //         }
 //         sayHi(){
 //             console.log(`我的名字是${this.name},学号为${this.number}`)
-            
+
 //         }
 //     }
-    
+
 //     let w = new Student("吴梦成",160101050108)
     </script>
-    
-    
-    
-    
+
+
+
+
 </body>
+
 </html>
