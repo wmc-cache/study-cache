@@ -25,6 +25,7 @@
         };
       });
     }
+    //我们都知道，then 方法返回一个新的 promise 实例，这是实现链式调用的根本
     loadImg(url)
       .then((img) => {
         return img.width;
