@@ -7,3 +7,7 @@ git checkout -b login 登录新分支
 git checkout  master 切换到master分支
 
 git push origin login 
+
+git fetch 拉所有的分支
+
+git merge login 
