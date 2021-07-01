@@ -10,11 +10,22 @@
 
 <body>
   <script>
+
+
+
     let arr = [1, 2, 2, 1, 2]
 
-    //let arr1 = Array.from(new Set(arr))
-    //console.log(arr1)
+    function unique(arr) {
+      let res = []
+      arr.forEach(ele => {
+        if (res.indexOf(ele) < 0) {
+          res.push(ele)
+        }
 
+      })
+      return res
+    }
+    console.log("unique", unique(arr))
     console.log([...new Set(arr)])
     console.log(Object.prototype.toString.call([...new Set(arr)]))
   </script>
