@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>hash路由</button>
+    <script>
+      window.onhashchange = (e) => {
+        console.log("hash:", location.hash);
+      };
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("hash:", location.hash);
+      });
+
+      document
+        .getElementsByTagName("button")[0]
+        .addEventListener("click", () => {
+          location.hash = "#/user";
+        });
+    </script>
+  </body>
+</html>

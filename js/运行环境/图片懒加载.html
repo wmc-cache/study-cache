@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var myImage = function () {
+      //   var imgNode = document.createElement("img");
+      //   document.body.appendChild(imgNode);
+      //   var img = new Image();
+
+      //   img.onload = function () {
+      //     imgNode.src = img.src;
+      //   };
+
+      //   return {
+      //     setSrc: function (src) {
+      //       imgNode.src = "../data/loading.jpg";
+      //       img.src = src;
+      //     },
+      //   };
+      // };
+
+      // myImage().setSrc("https://www.baidu.com/img/bd_logo1.png");
+    </script>
+
+    <script>
+      var myImage = (function () {
+        var imgNode = document.createElement("img");
+        document.body.appendChild(imgNode);
+
+        return {
+          setSrc: function (src) {
+            imgNode.src = src;
+          },
+        };
+      })();
+
+      var proxyImage = (function () {
+        var img = new Image();
+        //console.log(new Image());
+        img.onload = function () {
+          myImage.setSrc(this.src);
+        };
+        return {
+          setSrc: function (src) {
+            myImage.setSrc("../data/loading.jpg");
+            img.src = src;
+          },
+        };
+      })();
+      // console.log(myImage);
+      // console.log(proxyImage);
+
+      proxyImage.setSrc("https://www.baidu.com/img/bd_logo1.png");
+    </script>
+  </body>
+</html>

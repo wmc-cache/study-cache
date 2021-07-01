@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:3000", true);
+      xhr.onreadystatechange = function() {
+        // console.log(xhr.readyState)
+        if (xhr.readyState === 4) {
+          // 0:还没有调用send()方法
+          // 1:已调用send()方法,正在发送请求
+          // 2:send()方法执行完成,已经接收到全部响应内容
+          // 3:正在解析响应内容
+          // 4:响应内容解析完成,可以在客户端调用
+          //   console.log(JSON.parse(xhr.responseText))
+          if (xhr.status === 200) {
+            //2xx 成功处理请求
+            //3xx 重定向,浏览器直接跳转
+            //4xx 客户端请求错误
+            //5xx 服务端错误
+            console.log(xhr.responseText);
+          } else {
+            console.log("error");
+          }
+        }
+      };
+      xhr.send(null);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+
+    1.资源的形式 
+    
+    html代码 媒体文件,如图片、视频等 javascript css 
+
+    2.加载过程
+    DNS解析:域名 => IP地址(大型网站有多个IP地址)
+    浏览器(操作系统)根据IP地址向服务器发起http请求
+    服务器处理http请求,并返回给浏览器 
+
+    3.渲染过程 
+    根据HTML代码生成DOM Tree
+    根据css代码生成CSSOM Tree 
+    将DOM Tree和CSSOM Tree整合生成Render Tree
+    根据Render Tree渲染页面
+    遇到script则暂停渲染,优先加载并执行js代码,完成再继续渲染
+    直到把RenderTree渲染完成
+
+   
+
+
+    window.onload();
+    资源全部加载完成才能执行,包括图片
+    DOMContentLoaded;
+    渲染完成即可,图片可能尚未下载
+   

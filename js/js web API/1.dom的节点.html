@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .wu{
+      color: cadetblue;
+    }
+    p{
+      color: darkblue;
+    }
+    
+    </style>
+</head>
+<body>
+
+    <p style="color: darkmagenta;" class="wu">1</p>
+    <p>2</p>
+    <p>3</p>
+    property:修改对像属性，不会体现到html结构中
+    attribute:修改html属性,会改变html结构
+
+    <script>
+      const p = document.getElementsByClassName('wu')[0];
+      const pList = document.querySelectorAll('p');
+      const p = pList[0];
+     
+      p.className = "p1"
+      console.log(p.className)
+      console.log(p.nodeName)
+    
+      p.setAttribute('style','color:red')
+      console.log(p)
+    </script>
+</body>
+</html>

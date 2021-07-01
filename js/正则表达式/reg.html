@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //  /i忽视大小写 /g全局匹配 /m多行匹配
+    // \w ===[0-9A-z_]
+    //  \W ===[^\w]
+    //  \d ===[0-9]
+    //  \s ===[\t\n\r\v\f ]
+    // \b === 单词边界
+
+
+
+    let reg = /abc/;
+    //let reg = new RegExp("abc")
+    let str = "abcdabc";
+
+
+    console.log(reg.test(str))
+    console.log(str.match(reg))
+  </script>
+</body>
+
+</html>
