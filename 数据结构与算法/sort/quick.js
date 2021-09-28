@@ -1,6 +1,6 @@
 let arr = [2,3,1,6,4,9,4,3,1]
 
-function quicksort (arr) {
+function quickSort (arr) {
   if(arr.length<2) return arr
   let left = [] 
   let right = []
@@ -13,7 +13,7 @@ function quicksort (arr) {
        right.push(ele)
    }
   })
-  return quicksort(left).concat(arr[middle],quicksort(right))
+  return quickSort(left).concat(arr[middle],quickSort(right))
  }
 
- console.log("|||||||",quicksort(arr))  
+ console.log("|||||||",quickSort(arr))  
