@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node ./src/index.ts"
+    "dev": "ts-node ./src/emitter.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "ts-node": "^8.6.2"
+    "ts-node": "^8.10.2"
   },
   "dependencies": {
     "typescript": "^3.8.2"

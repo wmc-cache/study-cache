@@ -9,18 +9,23 @@
 
 <body>
   <script>
-    var arr = [1, 2, 4, 4];
-    const Arr = arr.reduce(
-      function (pre, cur, index, arr, initialValue) {
-        //console.log(pre, cur, index, arr, initialValue)
-        console.log("pre", pre)
-        console.log("cur", cur)
-        return pre + cur
-      }
-    );
-    console.log(Arr)
+    // var arr = [1, 2, 4, 4];
+    // const Arr = arr.reduce(
+    //   function (pre, cur, index, arr, initialValue) {
+    //     //console.log(pre, cur, index, arr, initialValue)
+    //     console.log("pre", pre)
+    //     console.log("cur", cur)
+    //     return pre + cur
+    //   }
+    // );
+    // console.log(Arr)
+    let arr =  [1,2,3,4,5,6]
+    let total = arr.reduce((p,c)=>{
+      return  p+c 
+    },10)
+    console.log("total",total)
 
-
+  
   </script>
 </body>
 
