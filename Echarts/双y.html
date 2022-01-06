@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//cdn.bootcss.com/echarts/4.5.0/echarts.common.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 1200px;height: 600px"></div>
+    <script>
+
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: [{
+                type: 'value',
+            
+            },{
+                type: 'value'
+            }
+           ],
+            series: [
+                {   
+                    yAxisIndex: 1,
+                    data: [16000, 24000, 25400, 121800, 13500, 14700, 26000],
+                    type: 'line',
+                },
+                {
+                    
+                    data: [15000, 23000, 22400, 21800, 13500, 14700, 26000],
+                    type: 'line'
+                }
+            ]
+        };
+
+
+        option && myChart.setOption(option);
+
+    </script>
+</body>
+
+</html>

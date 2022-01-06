@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id"></div>
+    <script>
+        // 向 window派发一个resize内置事件
+        // window.dispatchEvent(new Event('resize'))
+
+
+        // 直接自定义事件，使用 Event 构造函数：
+        var event = new Event('build');
+        var elem = document.querySelector('#id')
+        // 监听事件
+        elem.addEventListener('build', function (e) {
+            console.log('build')
+        }, false);
+        // 触发事件.
+        elem.dispatchEvent(event);
+
+
+        // var myEvent = new CustomEvent(eventname, options);
+        // 其中 options 可以是：
+        // {
+        //     detail: {
+        //     },
+        //     bubbles: true,    //是否冒泡
+        //         cancelable: false //是否取消默认事件
+        // }
+    </script>
+</body>
+
+</html>

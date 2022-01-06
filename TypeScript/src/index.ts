@@ -20,4 +20,6 @@ interface Test{
  type m =  Extract<'webName'|'age'|'ww',keyof Test>
  
 
+ type o = Record<string,{id:number,name:string}>
+
 

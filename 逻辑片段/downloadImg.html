@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>button</button>
+    <script>
+        const button = document.getElementsByTagName('button')[0]
+        button.addEventListener('click', async() => {
+            // window.open('https://guanxing-1255629255.cos.ap-guangzhou.myqcloud.com/cs/1640346213000_%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1?q-sign-algorithm=sha1&q-ak=AKIDeATXNAsSt76qLckiV5QZU9amiSzHKDrG&q-sign-time=1640778104%3B1640778464&q-key-time=1640778104%3B1640778464&q-header-list=host&q-url-param-list=&q-signature=3bc2899346da67a717e38a2d7577e8b4a3e4d148')
+            const data = await urlToBase64('https://guanxing-1255629255.cos.ap-guangzhou.myqcloud.com/cs/1640346213000_%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1?q-sign-algorithm=sha1&q-ak=AKIDeATXNAsSt76qLckiV5QZU9amiSzHKDrG&q-sign-time=1640778104%3B1640778464&q-key-time=1640778104%3B1640778464&q-header-list=host&q-url-param-list=&q-signature=3bc2899346da67a717e38a2d7577e8b4a3e4d148')
+            console.log(data)
+        })
+
+        function urlToBase64(url) {
+            return new Promise((resolve, reject) => {
+                let image = new Image();
+                image.onload = function() {
+                    let canvas = document.createElement('canvas');
+                    canvas.width = '100px';
+                    canvas.height = '100px';
+                    // 将图片插入画布并开始绘制
+                    canvas.getContext('2d').drawImage(image, 0, 0);
+                    // result
+                    let result = canvas.toDataURL('image/png')
+                    resolve(result);
+                };
+                // CORS 策略，会存在跨域问题https://stackoverflow.com/questions/20424279/canvas-todataurl-securityerror
+                image.setAttribute("crossOrigin", 'Anonymous');
+                image.src = url;
+                // 图片加载失败的错误处理
+                image.onerror = () => {
+                    reject(new Error('图片流异常'));
+                };
+            })
+        }
+    </script>
+</body>
+
+</html>
