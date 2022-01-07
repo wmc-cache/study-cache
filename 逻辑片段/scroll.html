@@ -43,16 +43,19 @@
 <body>
     <div id="div" style="width: 200px;height:200px;background-color: salmon;overflow: scroll">
         <div style="width:100px;height:300px;background-color:rebeccapurple;">
-            p
+            oooo
         </div>
     </div>
-    scrollHeight - scrollTop < clientHeight + offset(偏移量) scrollHeight:可滚动内容的高度 clientHeight=内容实际高度 + 上下内边距
-        offsetHeight=height + padding + border </body>
-        <script>
-            const id = document.getElementById('div')
-            setInterval(() => {
-                console.log(id.scrollHeight, id.scrollTop, id.clientHeight)
-            }, 2000);
-        </script>
+    <span>scrollHeight - scrollTop(获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 ) < clientHeight + offset(偏移量) </span>
+            <span> scrollHeight:可滚动内容的高度 </span>
+            <span> clientHeight=内容实际高度 + 上下内边距</span>
+            <span> offsetHeight= height + padding + border</span>
+</body>
+<script>
+    const id = document.getElementById('div')
+    setInterval(() => {
+        console.log(id.scrollHeight, id.scrollTop, id.clientHeight)
+    }, 2000);
+</script>
 
 </html>
