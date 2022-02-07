@@ -20,9 +20,17 @@
         option = {
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {
-                    type: 'cross'
+                formatter(data) {
+                    //console.log(data)
+                    const width = "100px"
+                    const height = "100px"
+                    const color = "red"
+                    return `<div style="color:${color}">${data[0].value}</div>`
                 }
+                // trigger: 'axis',
+                // axisPointer: {
+                //     type: 'cross'
+                // }
             },
             xAxis: {
                 type: 'category',
@@ -30,22 +38,25 @@
             },
             yAxis: [{
                 type: 'value',
-            
-            },{
+
+            }, {
                 type: 'value'
             }
-           ],
+            ],
             series: [
-                {   
+                {
                     yAxisIndex: 1,
                     data: [16000, 24000, 25400, 121800, 13500, 14700, 26000],
                     type: 'line',
+                    colorBy: "data",
+                    //color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc']
                 },
                 {
-                    
+
                     data: [15000, 23000, 22400, 21800, 13500, 14700, 26000],
                     type: 'line'
-                }
+                },
+
             ]
         };
 

@@ -12,7 +12,7 @@
   <div name="wmc" id="box"></div>
   <script>
     let box = document.getElementById('box');
-    let config = { attributes: true };
+    let config = { attributes: true, attributeOldValue: true };
 
     /*
     * 在我们创建MutationObserver对象的时候可以传入一个函数，
@@ -27,11 +27,13 @@
 
     observer.observe(box, config) // 监听的 元素 和 配置项
     box.setAttribute('name', '张三')// 修改属性
+    box.setAttribute('name', '张??')
+    box.setAttribute('id', '123')
 
     let arr = observer.takeRecords()
     // 获取队列中未处理的，
     // 这个方法是同步执行，可以即时获取
-    console.log(arr[0])
+    console.log(arr[0], arr)
 
     //observer.disconnect()
 

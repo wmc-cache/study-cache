@@ -58,9 +58,9 @@ function reactive(target = {}) {
 // 测试数据
 const data = {
     name: 'zhangsan',
-    age: 20,
+    age: 80,
     info: {
-        city: 'beijing',
+        city: 'beijing===',
         a: {
             b: {
                 c: {
@@ -89,6 +89,6 @@ let div = document.getElementsByTagName("div")[0]
 let div2 = document.getElementsByTagName("div")[1]
 //console.log(div)
 div.innerHTML = proxyData.name
-div2.innerHTML = proxyData.age
+div2.innerHTML = proxyData.info.city
 
 
