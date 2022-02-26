@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="downloadE">download</div>
+    <script>
+
+        function download(url, name) {
+            const link = document.createElement('a');
+            link.setAttribute('download', name);
+            link.setAttribute('href', url);
+            Object.assign(link.style, {
+                position: 'absolute',
+                top: 0,
+                opacity: 0,
+            });
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+        };
+        document.getElementById("downloadE").
+            addEventListener("click", () => {
+                download('https://www.baidu.com/img/bd_logo1.png', "wmc")
+            })
+
+
+
+    </script>
+</body>
+
+</html>
