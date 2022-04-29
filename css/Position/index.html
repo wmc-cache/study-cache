@@ -12,18 +12,42 @@
       padding: 0;
     }
 
-    div {
+    .box {
       width: 10vw;
       min-height: 100px;
       height: 10vh;
       min-height: 100px;
       background-color: aqua;
+      position: absolute;
+      z-index: 1;
+      top:1000px;
     }
   </style>
 </head>
 
 <body>
-  <div></div>
+
+  <div style="width: 100px;height:100px;position: relative">
+
+  </div>
+  <div id="test">
+    <div style="width: 1000px;height:200px; background-color: red;"></div>
+    <div style="width: 100px;height:100px;background-color: seagreen"></div>
+    <div class="box">
+
+    </div>
+  </div>
+  <script>
+    test.onmouseleave = function (e) {
+      console.log("leave")
+    }
+    test.onmouseenter = function (e) {
+        console.log("enter")
+      }
+      setInterval(()=>{
+        window.close()
+      },2000)
+  </script>
 </body>
 
 </html>
