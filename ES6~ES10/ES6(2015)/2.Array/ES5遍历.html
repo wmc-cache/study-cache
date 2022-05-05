@@ -70,9 +70,17 @@
     // }
 
     //ES6 for of
-    for (let ele of arr) {
-      console.log(ele)
-    }
+    // for (let ele of arr) {
+    //   console.log(ele)
+    // }
+
+    const arrObj = [{ id: 1, name: "wmc" }, { id: 3, name: "wmc3" }, { id: 2, name: "wmc2" }, { id: 4, name: "wmc4" }]
+    arrObj.sort((a, b) => {
+      console.log(a, b)
+      return b.id - a.id
+    })
+    console.log(arrObj)
+
   </script>
 </body>
 
